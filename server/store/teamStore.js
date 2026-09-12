@@ -1,29 +1,6 @@
 import { getStoreState, saveStoreState } from './storageEngine.js'
 
-const defaultTeamMembers = [
-  {
-    id: 1,
-    name: 'Mian Amanat Ali',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&h=256&q=80',
-    about: 'Our foundational philosophy has remained unchanged for over 15 years: transparency, genuine products, and uncompromising customer care. We ensure every Pakistani home receives 100% verified original PEL electronics backed by direct manufacturer warranty and honest pricing.',
-    isExecutive: true,
-    order: 1,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 2,
-    name: 'Usman Amanat',
-    role: 'Managing Director',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=256&h=256&q=80',
-    about: 'Overseeing nationwide logistics, showroom customer experience, and certified technician installation networks across Pakistan.',
-    isExecutive: false,
-    order: 2,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-]
+const defaultTeamMembers = []
 
 export const getAllTeamMembers = () => {
   const state = getStoreState()

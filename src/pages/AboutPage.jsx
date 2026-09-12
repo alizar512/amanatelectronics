@@ -12,33 +12,14 @@ import {
 } from 'react-icons/fa'
 import { getTeamMembers } from '../services/catalogService'
 
-const DEFAULT_TEAM = [
-  {
-    id: 1,
-    name: 'Mian Amanat Ali',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&h=256&q=80',
-    about: 'Our foundational philosophy has remained unchanged for over 15 years: transparency, genuine products, and uncompromising customer care. We ensure every Pakistani home receives 100% verified original PEL electronics backed by direct manufacturer warranty and honest pricing.',
-    isExecutive: true,
-  },
-  {
-    id: 2,
-    name: 'Usman Amanat',
-    role: 'Managing Director',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=256&h=256&q=80',
-    about: 'Overseeing nationwide logistics, showroom customer experience, and certified technician installation networks across Pakistan.',
-    isExecutive: false,
-  },
-]
-
 export default function AboutPage() {
-  const [team, setTeam] = useState(DEFAULT_TEAM)
+  const [team, setTeam] = useState([])
 
   useEffect(() => {
     let mounted = true
     getTeamMembers()
       .then((data) => {
-        if (mounted && Array.isArray(data) && data.length > 0) {
+        if (mounted && Array.isArray(data)) {
           setTeam(data)
         }
       })
@@ -47,9 +28,6 @@ export default function AboutPage() {
       mounted = false
     }
   }, [])
-
-  const executiveMember = team.find((m) => m.isExecutive || m.role?.toLowerCase().includes('ceo')) || team[0]
-  const otherMembers = team.filter((m) => m.id !== executiveMember?.id)
 
   return (
     <div className="section-gap">
@@ -96,106 +74,53 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="mb-12">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
-              Team
-            </h2>
-          </div>
+        {/* Team Section (Displays only if admin has configured team members) */}
+        {team.length > 0 && (
+          <div className="mb-12">
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                Team
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Featured Executive / CEO Card */}
-            {executiveMember && (
-              <div className="relative overflow-hidden rounded-3xl border-2 border-blue-500/30 bg-gradient-to-br from-white via-blue-50/40 to-slate-50 p-6 shadow-lg dark:border-blue-400/20 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 sm:p-8 lg:col-span-2">
-                <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                  <div className="relative shrink-0 mx-auto sm:mx-0">
-                    <div className="relative h-28 w-28 rounded-full p-1 ring-4 ring-blue-500/20 bg-white dark:bg-slate-800 shadow-lg">
-                      <img
-                        src={executiveMember.image || DEFAULT_TEAM[0].image}
-                        alt={executiveMember.name}
-                        className="h-full w-full rounded-full object-cover"
-                        onError={(e) => {
-                          e.target.onerror = null
-                          e.target.src = DEFAULT_TEAM[0].image
-                        }}
-                      />
-                    </div>
-                    <span className="absolute bottom-0 right-0 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white shadow-md ring-2 ring-white dark:ring-slate-900">
-                      <FaUserTie size={13} />
-                    </span>
-                  </div>
-
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white">{executiveMember.name}</h3>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
-                        <FaUserTie className="h-3 w-3" /> {executiveMember.role}
-                      </span>
-                    </div>
-                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
-                      {executiveMember.role} — Amanat Electronics
-                    </p>
-
-                    {executiveMember.about && (
-                      <div className="relative mt-4 rounded-2xl bg-white/90 p-4 text-left border border-slate-200/70 shadow-sm dark:bg-slate-800/90 dark:border-slate-700/70">
-                        <FaQuoteLeft className="absolute right-3 top-3 text-slate-200 dark:text-slate-700" size={24} />
-                        <p className="relative text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                          "{executiveMember.about}"
-                        </p>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {team.map((member) => (
+                <div
+                  key={member.id}
+                  className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-7"
+                >
+                  <div>
+                    <div className="flex items-center gap-4">
+                      <div className="relative shrink-0">
+                        <div className="relative h-16 w-16 overflow-hidden rounded-full p-0.5 ring-2 ring-blue-500/30 bg-white dark:bg-slate-800 shadow-md">
+                          <img
+                            src={member.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&h=256&q=80'}
+                            alt={member.name}
+                            className="h-full w-full rounded-full object-cover"
+                          />
+                        </div>
                       </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white text-base">
+                          {member.name}
+                        </h4>
+                        <span className="inline-block rounded-full bg-blue-100 px-2.5 py-0.5 text-[11px] font-bold text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                          {member.role}
+                        </span>
+                      </div>
+                    </div>
+
+                    {member.about && (
+                      <p className="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                        {member.about}
+                      </p>
                     )}
                   </div>
                 </div>
-              </div>
-            )}
-
-            {/* Other Team Members */}
-            {otherMembers.map((member) => (
-              <div
-                key={member.id}
-                className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-7"
-              >
-                <div>
-                  <div className="flex items-center gap-4">
-                    <div className="relative shrink-0">
-                      <div className="relative h-16 w-16 rounded-full p-0.5 ring-2 ring-emerald-500/30 bg-white dark:bg-slate-800 shadow-md">
-                        <img
-                          src={member.image || DEFAULT_TEAM[1].image}
-                          alt={member.name}
-                          className="h-full w-full rounded-full object-cover"
-                          onError={(e) => {
-                            e.target.onerror = null
-                            e.target.src = DEFAULT_TEAM[1].image
-                          }}
-                        />
-                      </div>
-                      <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600 text-white text-[10px] shadow ring-2 ring-white dark:ring-slate-900">
-                        <FaShieldAlt size={10} />
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white">{member.name}</h4>
-                      <span className="inline-block rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
-                        {member.role}
-                      </span>
-                    </div>
-                  </div>
-
-                  {member.about && (
-                    <p className="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                      {member.about}
-                    </p>
-                  )}
-                </div>
-
-                <div className="mt-6 border-t border-slate-100 pt-3 text-xs text-slate-400 dark:border-slate-800">
-                  <span>Amanat Electronics Team</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Core Values */}
         <div className="mb-12">
