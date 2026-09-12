@@ -1,0 +1,2569 @@
+import { slugify } from '../../utils/format.js'
+
+export const categories = [
+  {
+    "id": "air-conditioners",
+    "name": "Air Conditioners",
+    "description": "InverterOn T3 Tropical, Jumbo DC Prime, Turbo DC, AERO Extend & Floor Standing ACs.",
+    "accent": "from-sky-500/20 to-cyan-500/10",
+    "isActive": true
+  },
+  {
+    "id": "refrigerators-freezers",
+    "name": "Refrigerators & Freezers",
+    "description": "Glass Door, Digitron Ultra Inverter, Prinvo VCM, Life Pro, Room Series & Arctic Freezers.",
+    "accent": "from-blue-500/20 to-indigo-500/10",
+    "isActive": true
+  },
+  {
+    "id": "water-dispensers",
+    "name": "Water Dispensers",
+    "description": "3-Tap Curved/Straight Glass Door, Premier, Smart & Table-Top Hot & Cold Dispensers.",
+    "accent": "from-teal-500/20 to-emerald-500/10",
+    "isActive": true
+  },
+  {
+    "id": "microwave-ovens",
+    "name": "Microwave Ovens",
+    "description": "Kitchen Pro Inverter Convection Air Fryers, Grill, Glamour, Desire & Classic Series.",
+    "accent": "from-amber-500/20 to-orange-500/10",
+    "isActive": true
+  },
+  {
+    "id": "smart-tvs-audio",
+    "name": "Smart LED TVs",
+    "description": "PEL 4K Bezel-less QLED Google TVs (32\" to 65\") & Panasonic 4K Google Certified Series.",
+    "accent": "from-purple-500/20 to-fuchsia-500/10",
+    "isActive": true
+  },
+  {
+    "id": "washing-machines",
+    "name": "Washing Machines",
+    "description": "Smart Inverter Fully Automatic, Fuzzy Logic Auto & Heavy-Duty Semi-Auto Twin Tubs.",
+    "accent": "from-cyan-500/20 to-blue-500/10",
+    "isActive": true
+  }
+]
+
+export const brands = [
+  "PEL",
+  "Panasonic"
+]
+
+const productsBase = [
+  {
+    "id": "pel-1",
+    "name": "Panasonic BKF Inverter T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "Panasonic",
+    "price": 139900,
+    "originalPrice": 151100,
+    "rating": 4.8,
+    "reviews": 25,
+    "stock": 11,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine Panasonic BKF Inverter T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-1.png",
+      "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-2.png",
+      "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-3.png",
+      "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-4.png",
+      "/images/products/panasonic-bkf-inverter-t3-h-c-air-conditioner-5.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton / 2 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PANASONIC-BKF-INVE-1",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "panasonic-bkf-inverter-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-2",
+    "name": "PEL InverterOn Cool Pro (Cool Only) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 102900,
+    "originalPrice": 111100,
+    "rating": 4.9,
+    "reviews": 32,
+    "stock": 14,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Cool Pro (Cool Only) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-cool-pro-cool-only-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-cool-pro-cool-only-air-conditioner-1.png",
+      "/images/products/pel-inverteron-cool-pro-cool-only-air-conditioner-2.png",
+      "/images/products/pel-inverteron-cool-pro-cool-only-air-conditioner-3.png",
+      "/images/products/pel-inverteron-cool-pro-cool-only-air-conditioner-4.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Cool Only (Eco Saver)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "Cool Pro 12K",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-cool-pro-cool-only-air-conditioner"
+  },
+  {
+    "id": "pel-3",
+    "name": "PEL InverterOn Jumbo Cool T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 129900,
+    "originalPrice": 140300,
+    "rating": 5,
+    "reviews": 39,
+    "stock": 17,
+    "badge": "T3 InverterOn",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Jumbo Cool T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-jumbo-cool-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-jumbo-cool-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-jumbo-cool-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-jumbo-cool-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton / 2 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-JUM-3",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-jumbo-cool-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-4",
+    "name": "PEL InverterOn ACE Pro (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 113900,
+    "originalPrice": 123000,
+    "rating": 4.7,
+    "reviews": 46,
+    "stock": 20,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn ACE Pro (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-ace-pro-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-ace-pro-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-ace-pro-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-ace-pro-h-c-air-conditioner-3.png",
+      "/images/products/pel-inverteron-ace-pro-h-c-air-conditioner-4.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-ACE-4",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-ace-pro-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-5",
+    "name": "PEL QLED 65 SMART GOOGLE PLD Ultra HD",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 195900,
+    "originalPrice": 211600,
+    "rating": 4.8,
+    "reviews": 53,
+    "stock": 23,
+    "badge": "4K Quantum QLED Google TV",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL QLED 65 SMART GOOGLE PLD Ultra HD at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-qled-65-smart-google-pld-ultra-hd-1.png",
+    "images": [
+      "/images/products/pel-qled-65-smart-google-pld-ultra-hd-1.png",
+      "/images/products/pel-qled-65-smart-google-pld-ultra-hd-2.png"
+    ],
+    "colors": [
+      "65 Inch"
+    ],
+    "specs": {
+      "Display Technology": "Quantum Dot 4K QLED Panel (1 Billion Colors)",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "QLED-65",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-qled-65-smart-google-pld-ultra-hd"
+  },
+  {
+    "id": "pel-6",
+    "name": "PEL InverterOn Refrigerator PRINVO VCM",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 69900,
+    "originalPrice": 75500,
+    "rating": 4.9,
+    "reviews": 60,
+    "stock": 26,
+    "badge": "Low Voltage Startup",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Refrigerator PRINVO VCM at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-refrigerator-prinvo-vcm-1.png",
+    "images": [
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-1.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-2.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-3.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-4.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-5.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-6.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-7.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-8.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-9.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-10.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-11.png",
+      "/images/products/pel-inverteron-refrigerator-prinvo-vcm-12.png"
+    ],
+    "colors": [
+      "Gold Silk",
+      "Silver Moonlight"
+    ],
+    "specs": {
+      "Capacity / Series": "2000 (168 LTR) / 2200 (194 LTR) / 2350 (240 LTR) / 2550 (260 LTR) / 6360 (310 LTR) / 6460 (334 LTR) / 21860 (354 LTR)",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "VCM - 2000 Gold Silk",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-inverteron-refrigerator-prinvo-vcm"
+  },
+  {
+    "id": "pel-7",
+    "name": "PEL Refrigerator Glass Door",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 69900,
+    "originalPrice": 75500,
+    "rating": 5,
+    "reviews": 67,
+    "stock": 29,
+    "badge": "Mirror Glass Door",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL Refrigerator Glass Door at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-refrigerator-glass-door-prism-1.png",
+    "images": [
+      "/images/products/pel-refrigerator-glass-door-prism-1.png",
+      "/images/products/pel-refrigerator-glass-door-prism-2.png",
+      "/images/products/pel-refrigerator-glass-door-prism-3.png",
+      "/images/products/pel-refrigerator-glass-door-prism-4.png",
+      "/images/products/pel-refrigerator-glass-door-prism-5.png",
+      "/images/products/pel-refrigerator-glass-door-prism-6.png",
+      "/images/products/pel-refrigerator-glass-door-prism-7.png",
+      "/images/products/pel-refrigerator-glass-door-prism-8.png"
+    ],
+    "colors": [
+      "Red Blaze",
+      "Purple Blaze",
+      "Pattern Mirror Red"
+    ],
+    "specs": {
+      "Capacity / Series": "2000 (168 LTR) / 2200 (194 LTR) / 2350 (240 LTR) / 2550 (260 LTR) / 6370 (310 LTR) / 6470 (334 LTR) / 21870 (354 LTR) / 21970 (382 LTR) / 22270 (408 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "2000-Red Blaze",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-refrigerator-glass-door-prism"
+  },
+  {
+    "id": "pel-8",
+    "name": "PEL Vertical Inverter Glass Door Deep Freezer",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 112900,
+    "originalPrice": 121900,
+    "rating": 4.7,
+    "reviews": 74,
+    "stock": 32,
+    "badge": "Mirror Glass Door",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL Vertical Inverter Glass Door Deep Freezer at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-vertical-inverter-glass-door-deep-freezer-1.png",
+    "images": [
+      "/images/products/pel-vertical-inverter-glass-door-deep-freezer-1.png",
+      "/images/products/pel-vertical-inverter-glass-door-deep-freezer-2.png",
+      "/images/products/pel-vertical-inverter-glass-door-deep-freezer-3.png"
+    ],
+    "colors": [
+      "Hazel Red Blaze"
+    ],
+    "specs": {
+      "Capacity / Series": "7D (281 LTR)",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "7D-HRB",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-vertical-inverter-glass-door-deep-freezer"
+  },
+  {
+    "id": "pel-9",
+    "name": "PEL Digitron Ultra Inverter Curved Glassdoor Refrigerator",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 108900,
+    "originalPrice": 117600,
+    "rating": 4.8,
+    "reviews": 81,
+    "stock": 10,
+    "badge": "Digitron Smart Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL Digitron Ultra Inverter Curved Glassdoor Refrigerator at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-digitron-inverteron-refrigerator-1.jpg",
+    "images": [
+      "/images/products/pel-digitron-inverteron-refrigerator-1.jpg",
+      "/images/products/pel-digitron-inverteron-refrigerator-2.jpg",
+      "/images/products/pel-digitron-inverteron-refrigerator-3.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-4.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-5.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-6.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-7.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-8.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-9.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-10.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-11.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-12.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-13.png",
+      "/images/products/pel-digitron-inverteron-refrigerator-14.png"
+    ],
+    "colors": [
+      "Red Blaze",
+      "Silver Strip Grey",
+      "Silver Strip Black"
+    ],
+    "specs": {
+      "Capacity / Series": "6370 (310 LTR) / 6470 (334 LTR) / 21970 (382 LTR) / 22270 (408 LTR)",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "6370 Digitron Ultra Inverter Curved GlassdoorRed Blaze",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-digitron-inverteron-refrigerator"
+  },
+  {
+    "id": "pel-10",
+    "name": "PEL InverterOn Flat Glass Door Refrigerator",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 89900,
+    "originalPrice": 97100,
+    "rating": 4.9,
+    "reviews": 88,
+    "stock": 13,
+    "badge": "Mirror Glass Door",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Flat Glass Door Refrigerator at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-flat-glass-door-refrigerator-1.png",
+    "images": [
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-1.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-2.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-3.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-4.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-5.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-6.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-7.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-8.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-9.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-10.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-11.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-12.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-13.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-14.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-15.png",
+      "/images/products/pel-inverteron-flat-glass-door-refrigerator-16.png"
+    ],
+    "colors": [
+      "Maroon Blaze",
+      "Hazel Red Blaze",
+      "Koriyan Glass"
+    ],
+    "specs": {
+      "Capacity / Series": "2350 (240 LTR) / 2550 (260 LTR) / 6370 (310 LTR) / 6470 (334 LTR) / 21870 (354 LTR) / 22270 (408 LTR)",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "2350 InverterOn Maroon Blaze",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-inverteron-flat-glass-door-refrigerator"
+  },
+  {
+    "id": "pel-11",
+    "name": "PEL InverterOn Sublime Neo T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 120900,
+    "originalPrice": 130600,
+    "rating": 5,
+    "reviews": 95,
+    "stock": 16,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Sublime Neo T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-sublime-neo-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-sublime-neo-t3-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-sublime-neo-t3-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-sublime-neo-t3-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "Sublime Neo T3 White 1 Ton",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-sublime-neo-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-12",
+    "name": "PEL InverterOn Jumbo DC Prime Plus Wifi T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 138900,
+    "originalPrice": 150000,
+    "rating": 4.7,
+    "reviews": 102,
+    "stock": 19,
+    "badge": "T3 InverterOn",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Jumbo DC Prime Plus Wifi T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-jumbo-dc-prime-plus-wifi-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-jumbo-dc-prime-plus-wifi-t3-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-jumbo-dc-prime-plus-wifi-t3-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-jumbo-dc-prime-plus-wifi-t3-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-JUM-12",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-jumbo-dc-prime-plus-wifi-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-13",
+    "name": "PEL InverterOn Cool Breeze Air Conditioner (Cool Only)",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 98900,
+    "originalPrice": 106800,
+    "rating": 4.8,
+    "reviews": 109,
+    "stock": 22,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Cool Breeze Air Conditioner (Cool Only) at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-cool-breeze-air-conditioner-inv-cool-only-1.png",
+    "images": [
+      "/images/products/pel-cool-breeze-air-conditioner-inv-cool-only-1.png",
+      "/images/products/pel-cool-breeze-air-conditioner-inv-cool-only-2.png",
+      "/images/products/pel-cool-breeze-air-conditioner-inv-cool-only-3.png",
+      "/images/products/pel-cool-breeze-air-conditioner-inv-cool-only-4.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Cool Only (Eco Saver)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-COOL-BREEZE-AI-13",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-cool-breeze-air-conditioner-inv-cool-only"
+  },
+  {
+    "id": "pel-14",
+    "name": "PEL InverterOn ATOM (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 97900,
+    "originalPrice": 105700,
+    "rating": 4.9,
+    "reviews": 116,
+    "stock": 25,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn ATOM (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-atom-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-atom-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-atom-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-atom-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-ATO-14",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-atom-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-15",
+    "name": "PEL 425 3Taps Straight Glass Door Water Dispenser",
+    "category": "Water Dispensers",
+    "brand": "PEL",
+    "price": 39500,
+    "originalPrice": 42700,
+    "rating": 5,
+    "reviews": 123,
+    "stock": 28,
+    "badge": "3-Tap Tempered Glass",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL 425 3Taps Straight Glass Door Water Dispenser at the official PEL dealership. Backed by 3 Years Compressor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-1.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-2.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-3.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-4.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-5.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-6.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-7.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-8.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-9.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-10.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-11.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-12.png",
+      "/images/products/pel-425-3taps-straight-glass-door-water-dispenser-13.png"
+    ],
+    "colors": [
+      "Marine Impression",
+      "Red Blaze",
+      "Maroon Blaze"
+    ],
+    "specs": {
+      "Taps": "3 Taps (Instant Cold, Normal, Piping Hot)",
+      "Tank Material": "100% Rust-Proof Food-Grade Stainless Steel SS304",
+      "Refrigerator Cabinet": "Spacious Chilled Lower Cabinet",
+      "Safety": "Child Safety Lock on Hot Water Faucet",
+      "Compressor": "High-Efficiency Tropical Cooling Compressor"
+    },
+    "sku": "PEL-PEL-425-3TAPS-STRA-15",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "3 Years Compressor + 1 Year Parts Official Warranty",
+    "slug": "pel-425-3taps-straight-glass-door-water-dispenser"
+  },
+  {
+    "id": "pel-16",
+    "name": "PEL 525 3Taps Curved Glass Door Water Dispenser",
+    "category": "Water Dispensers",
+    "brand": "PEL",
+    "price": 40500,
+    "originalPrice": 43700,
+    "rating": 4.7,
+    "reviews": 130,
+    "stock": 31,
+    "badge": "3-Tap Tempered Glass",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL 525 3Taps Curved Glass Door Water Dispenser at the official PEL dealership. Backed by 3 Years Compressor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-1.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-2.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-3.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-4.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-5.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-6.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-7.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-8.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-9.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-10.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-11.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-12.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-13.png",
+      "/images/products/pel-525-3taps-curved-glass-door-water-dispenser-14.png"
+    ],
+    "colors": [
+      "Hazel Red Blaze",
+      "Red Blaze",
+      "Grey Blaze"
+    ],
+    "specs": {
+      "Taps": "3 Taps (Instant Cold, Normal, Piping Hot)",
+      "Tank Material": "100% Rust-Proof Food-Grade Stainless Steel SS304",
+      "Refrigerator Cabinet": "Spacious Chilled Lower Cabinet",
+      "Safety": "Child Safety Lock on Hot Water Faucet",
+      "Compressor": "High-Efficiency Tropical Cooling Compressor"
+    },
+    "sku": "PEL-PEL-525-3TAPS-CURV-16",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "3 Years Compressor + 1 Year Parts Official Warranty",
+    "slug": "pel-525-3taps-curved-glass-door-water-dispenser"
+  },
+  {
+    "id": "pel-17",
+    "name": "PEL QLED 43 Smart Google Bezel-less LED TV",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 81900,
+    "originalPrice": 88500,
+    "rating": 4.8,
+    "reviews": 137,
+    "stock": 9,
+    "badge": "4K Quantum QLED Google TV",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL QLED 43 Smart Google Bezel-less LED TV at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-qled-43-smart-google-bezel-less-led-tv-1.png",
+    "images": [
+      "/images/products/pel-qled-43-smart-google-bezel-less-led-tv-1.png"
+    ],
+    "colors": [
+      "43 Inch"
+    ],
+    "specs": {
+      "Display Technology": "Quantum Dot 4K QLED Panel (1 Billion Colors)",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PEL-QLED-43-SMART--17",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-qled-43-smart-google-bezel-less-led-tv"
+  },
+  {
+    "id": "pel-18",
+    "name": "PEL Kitchen Pro 30 LTR Inverter Convection + Air Fryer Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 62900,
+    "originalPrice": 67900,
+    "rating": 4.9,
+    "reviews": 144,
+    "stock": 12,
+    "badge": "Convection + Air Fryer",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Kitchen Pro 30 LTR Inverter Convection + Air Fryer Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-kitchen-pro-30-ltr-microwave-oven-1.png",
+    "images": [
+      "/images/products/pel-kitchen-pro-30-ltr-microwave-oven-1.png",
+      "/images/products/pel-kitchen-pro-30-ltr-microwave-oven-2.png",
+      "/images/products/pel-kitchen-pro-30-ltr-microwave-oven-3.png",
+      "/images/products/pel-kitchen-pro-30-ltr-microwave-oven-4.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Convection, 360° Air Frying, Grill, Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-KITCHEN-PRO-30-18",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-kitchen-pro-30-ltr-microwave-oven"
+  },
+  {
+    "id": "pel-19",
+    "name": "PEL Kitchen Pro 26 LTR Convection + Air Fryer Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 47900,
+    "originalPrice": 51700,
+    "rating": 5,
+    "reviews": 151,
+    "stock": 15,
+    "badge": "Convection + Air Fryer",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Kitchen Pro 26 LTR Convection + Air Fryer Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-kitchen-pro-26-ltr-microwave-oven-1.png",
+    "images": [
+      "/images/products/pel-kitchen-pro-26-ltr-microwave-oven-1.png",
+      "/images/products/pel-kitchen-pro-26-ltr-microwave-oven-2.png",
+      "/images/products/pel-kitchen-pro-26-ltr-microwave-oven-3.png",
+      "/images/products/pel-kitchen-pro-26-ltr-microwave-oven-4.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Convection, 360° Air Frying, Grill, Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-KITCHEN-PRO-26-19",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-kitchen-pro-26-ltr-microwave-oven"
+  },
+  {
+    "id": "pel-20",
+    "name": "PEL Kitchen Pro 28 LTR Grill Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 33900,
+    "originalPrice": 36600,
+    "rating": 4.7,
+    "reviews": 158,
+    "stock": 18,
+    "badge": "Grill & Roast",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL Kitchen Pro 28 LTR Grill Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-kitchen-pro-28-ltr-microwave-oven-1.png",
+    "images": [
+      "/images/products/pel-kitchen-pro-28-ltr-microwave-oven-1.png",
+      "/images/products/pel-kitchen-pro-28-ltr-microwave-oven-2.png",
+      "/images/products/pel-kitchen-pro-28-ltr-microwave-oven-3.png",
+      "/images/products/pel-kitchen-pro-28-ltr-microwave-oven-4.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Microwave + Quartz Grill Combination",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-KITCHEN-PRO-28-20",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-kitchen-pro-28-ltr-microwave-oven"
+  },
+  {
+    "id": "pel-21",
+    "name": "PEL Kitchen Pro 23 LTR Grill Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 30900,
+    "originalPrice": 33400,
+    "rating": 4.8,
+    "reviews": 165,
+    "stock": 21,
+    "badge": "Grill & Roast",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Kitchen Pro 23 LTR Grill Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-kitchen-pro-23-ltr-microwave-oven-1.png",
+    "images": [
+      "/images/products/pel-kitchen-pro-23-ltr-microwave-oven-1.png",
+      "/images/products/pel-kitchen-pro-23-ltr-microwave-oven-2.png",
+      "/images/products/pel-kitchen-pro-23-ltr-microwave-oven-3.png",
+      "/images/products/pel-kitchen-pro-23-ltr-microwave-oven-4.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Microwave + Quartz Grill Combination",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-KITCHEN-PRO-23-21",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-kitchen-pro-23-ltr-microwave-oven"
+  },
+  {
+    "id": "pel-22",
+    "name": "PEL InverterOn Prismo T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 128900,
+    "originalPrice": 139200,
+    "rating": 4.9,
+    "reviews": 172,
+    "stock": 24,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Prismo T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-prismo-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-prismo-t3-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-prismo-t3-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-prismo-t3-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton",
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "Prismo T3 1 Ton",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-prismo-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-23",
+    "name": "PEL InverterOn Fit Cool T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 128900,
+    "originalPrice": 139200,
+    "rating": 5,
+    "reviews": 179,
+    "stock": 27,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Fit Cool T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-fit-cool-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-fit-cool-t3-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-fit-cool-t3-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-fit-cool-t3-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton",
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "Fit Cool 1 Ton",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-fit-cool-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-24",
+    "name": "Panasonic 75 LED 4K Google Certified (MX 740 Series)",
+    "category": "Smart LED TVs",
+    "brand": "Panasonic",
+    "price": 339900,
+    "originalPrice": 367100,
+    "rating": 4.7,
+    "reviews": 186,
+    "stock": 30,
+    "badge": "Panasonic 4K HDR Google TV",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine Panasonic 75 LED 4K Google Certified (MX 740 Series) at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/panasonic-75-led-4k-google-certified-mx-740-series-1.png",
+    "images": [
+      "/images/products/panasonic-75-led-4k-google-certified-mx-740-series-1.png",
+      "/images/products/panasonic-75-led-4k-google-certified-mx-740-series-2.png",
+      "/images/products/panasonic-75-led-4k-google-certified-mx-740-series-3.png",
+      "/images/products/panasonic-75-led-4k-google-certified-mx-740-series-4.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Display Technology": "IPS Ultra HD A+ Grade Frameless Panel",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PANASONIC-75-LED-4-24",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "panasonic-75-led-4k-google-certified-mx-740-series"
+  },
+  {
+    "id": "pel-25",
+    "name": "PEL QLED 50 Smart Google Bezel-less LED TV",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 111900,
+    "originalPrice": 120900,
+    "rating": 4.8,
+    "reviews": 193,
+    "stock": 8,
+    "badge": "4K Quantum QLED Google TV",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL QLED 50 Smart Google Bezel-less LED TV at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-qled-50-smart-google-bezel-less-led-tv-1.png",
+    "images": [
+      "/images/products/pel-qled-50-smart-google-bezel-less-led-tv-1.png",
+      "/images/products/pel-qled-50-smart-google-bezel-less-led-tv-2.png"
+    ],
+    "colors": [
+      "50 Inch"
+    ],
+    "specs": {
+      "Display Technology": "Quantum Dot 4K QLED Panel (1 Billion Colors)",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PEL-QLED-50-SMART--25",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-qled-50-smart-google-bezel-less-led-tv"
+  },
+  {
+    "id": "pel-26",
+    "name": "PEL QLED 32 Smart Google Bezel-less LED TV",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 53900,
+    "originalPrice": 58200,
+    "rating": 4.9,
+    "reviews": 20,
+    "stock": 11,
+    "badge": "4K Quantum QLED Google TV",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL QLED 32 Smart Google Bezel-less LED TV at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-qled-32-smart-google-bezel-less-led-tv-1.png",
+    "images": [
+      "/images/products/pel-qled-32-smart-google-bezel-less-led-tv-1.png",
+      "/images/products/pel-qled-32-smart-google-bezel-less-led-tv-2.png"
+    ],
+    "colors": [
+      "32 Inch"
+    ],
+    "specs": {
+      "Display Technology": "Quantum Dot 4K QLED Panel (1 Billion Colors)",
+      "Resolution": "HD Ready (1366 x 768)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PEL-QLED-32-SMART--26",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-qled-32-smart-google-bezel-less-led-tv"
+  },
+  {
+    "id": "pel-27",
+    "name": "PEL InverterOn Jumbo X T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 134900,
+    "originalPrice": 145700,
+    "rating": 5,
+    "reviews": 27,
+    "stock": 14,
+    "badge": "T3 InverterOn",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Jumbo X T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-jumbo-x-t3-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-jumbo-x-t3-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-jumbo-x-t3-h-c-air-conditioner-2.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton",
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "Black",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-JUM-27",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-jumbo-x-t3-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-28",
+    "name": "PEL InverterOn Fit Graphite T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 128900,
+    "originalPrice": 139200,
+    "rating": 4.7,
+    "reviews": 34,
+    "stock": 17,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Fit Graphite T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-fit-graphite-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-fit-graphite-air-conditioner-1.png",
+      "/images/products/pel-inverteron-fit-graphite-air-conditioner-2.png",
+      "/images/products/pel-inverteron-fit-graphite-air-conditioner-3.png"
+    ],
+    "colors": [
+      "1 Ton",
+      "1.5 Ton",
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-FIT-28",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-fit-graphite-air-conditioner"
+  },
+  {
+    "id": "pel-29",
+    "name": "Panasonic 65 LED 4K Google Certified (MX 740 Series)",
+    "category": "Smart LED TVs",
+    "brand": "Panasonic",
+    "price": 233900,
+    "originalPrice": 252600,
+    "rating": 4.8,
+    "reviews": 41,
+    "stock": 20,
+    "badge": "Panasonic 4K HDR Google TV",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine Panasonic 65 LED 4K Google Certified (MX 740 Series) at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-1.png",
+    "images": [
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-1.png",
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-2.png",
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-3.png",
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-4.png",
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-5.png",
+      "/images/products/panasonic-65-led-4k-google-certified-mx-740-series-6.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Display Technology": "IPS Ultra HD A+ Grade Frameless Panel",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PANASONIC-65-LED-4-29",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "panasonic-65-led-4k-google-certified-mx-740-series"
+  },
+  {
+    "id": "pel-30",
+    "name": "Panasonic 55 LED 4K Google Certified (MX 740 Series)",
+    "category": "Smart LED TVs",
+    "brand": "Panasonic",
+    "price": 142000,
+    "originalPrice": 153400,
+    "rating": 4.9,
+    "reviews": 48,
+    "stock": 23,
+    "badge": "Panasonic 4K HDR Google TV",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine Panasonic 55 LED 4K Google Certified (MX 740 Series) at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-1.png",
+    "images": [
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-1.png",
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-2.png",
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-3.png",
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-4.png",
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-5.png",
+      "/images/products/panasonic-55-led-4k-google-certified-mx-740-series-6.png"
+    ],
+    "colors": [
+      "Default Title"
+    ],
+    "specs": {
+      "Display Technology": "IPS Ultra HD A+ Grade Frameless Panel",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "PEL-PANASONIC-55-LED-4-30",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "panasonic-55-led-4k-google-certified-mx-740-series"
+  },
+  {
+    "id": "pel-31",
+    "name": "PEL InverterOn Ultimate 4 Ton Floor Standing Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 514900,
+    "originalPrice": 556100,
+    "rating": 5,
+    "reviews": 55,
+    "stock": 26,
+    "badge": "Commercial 4-Ton",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Ultimate 4 Ton Floor Standing Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-ultimate-4-ton-floor-standing-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-ultimate-4-ton-floor-standing-air-conditioner-1.png",
+      "/images/products/pel-inverteron-ultimate-4-ton-floor-standing-air-conditioner-2.png"
+    ],
+    "colors": [
+      "4 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-ULT-31",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-ultimate-4-ton-floor-standing-air-conditioner"
+  },
+  {
+    "id": "pel-32",
+    "name": "PEL InverterOn Supreme Round Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 309900,
+    "originalPrice": 334700,
+    "rating": 4.7,
+    "reviews": 62,
+    "stock": 29,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Supreme Round Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-supreme-round-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-supreme-round-air-conditioner-1.png"
+    ],
+    "colors": [
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-SUP-32",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-supreme-round-air-conditioner"
+  },
+  {
+    "id": "pel-33",
+    "name": "PEL InverterOn Bold + Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 279900,
+    "originalPrice": 302300,
+    "rating": 4.8,
+    "reviews": 69,
+    "stock": 32,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Bold + Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-bold-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-bold-air-conditioner-1.png"
+    ],
+    "colors": [
+      "2 Ton"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1.0 Ton / 1.5 Ton / 2.0 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-BOL-33",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-bold-air-conditioner"
+  },
+  {
+    "id": "pel-34",
+    "name": "PEL HD 32 Non Smart Bezel-less LED TV",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 37900,
+    "originalPrice": 40900,
+    "rating": 4.9,
+    "reviews": 76,
+    "stock": 10,
+    "badge": "Frameless Bezel-less",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL HD 32 Non Smart Bezel-less LED TV at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-hd-32-non-smart-bezel-less-led-tv-1.png",
+    "images": [
+      "/images/products/pel-hd-32-non-smart-bezel-less-led-tv-1.png"
+    ],
+    "colors": [
+      "32 Inch"
+    ],
+    "specs": {
+      "Display Technology": "IPS Ultra HD A+ Grade Frameless Panel",
+      "Resolution": "HD Ready (1366 x 768)",
+      "Operating System": "Multimedia Player OS",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "32 Bezel-less LED",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-hd-32-non-smart-bezel-less-led-tv"
+  },
+  {
+    "id": "pel-35",
+    "name": "PEL QLED 58 Smart Google Bezel-less LED TV",
+    "category": "Smart LED TVs",
+    "brand": "PEL",
+    "price": 130900,
+    "originalPrice": 141400,
+    "rating": 5,
+    "reviews": 83,
+    "stock": 13,
+    "badge": "4K Quantum QLED Google TV",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL QLED 58 Smart Google Bezel-less LED TV at the official PEL dealership. Backed by 2 Years Panel + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-hdf-55-smart-google-pld-uhd-4k-1.png",
+    "images": [
+      "/images/products/pel-hdf-55-smart-google-pld-uhd-4k-1.png",
+      "/images/products/pel-hdf-55-smart-google-pld-uhd-4k-2.png"
+    ],
+    "colors": [
+      "58 Inch"
+    ],
+    "specs": {
+      "Display Technology": "Quantum Dot 4K QLED Panel (1 Billion Colors)",
+      "Resolution": "4K Ultra HD (3840 x 2160 Pixels)",
+      "Operating System": "Official Google TV OS with Google Assistant & Chromecast",
+      "Audio": "Dolby Audio 24W Cinematic Stereo Speakers",
+      "Connectivity": "Dual-Band Wi-Fi, Bluetooth 5.0, 3x HDMI, 2x USB"
+    },
+    "sku": "58 Q LED",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Panel + 1 Year Parts Official Warranty",
+    "slug": "pel-hdf-55-smart-google-pld-uhd-4k"
+  },
+  {
+    "id": "pel-36",
+    "name": "PEL Table-Top Classic 115 Water Dispenser",
+    "category": "Water Dispensers",
+    "brand": "PEL",
+    "price": 29500,
+    "originalPrice": 31900,
+    "rating": 4.7,
+    "reviews": 90,
+    "stock": 16,
+    "badge": "3-Tap Instant Chilling",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL Table-Top Classic 115 Water Dispenser at the official PEL dealership. Backed by 3 Years Compressor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-table-top-classic-115-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-table-top-classic-115-water-dispenser-1.png",
+      "/images/products/pel-table-top-classic-115-water-dispenser-2.png",
+      "/images/products/pel-table-top-classic-115-water-dispenser-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Taps": "3 Taps (Instant Cold, Normal, Piping Hot)",
+      "Tank Material": "100% Rust-Proof Food-Grade Stainless Steel SS304",
+      "Refrigerator Cabinet": "Spacious Chilled Lower Cabinet",
+      "Safety": "Child Safety Lock on Hot Water Faucet",
+      "Compressor": "High-Efficiency Tropical Cooling Compressor"
+    },
+    "sku": "115 Table Top Classic",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "3 Years Compressor + 1 Year Parts Official Warranty",
+    "slug": "pel-table-top-classic-115-water-dispenser"
+  },
+  {
+    "id": "pel-37",
+    "name": "PEL Glass Door Refrigerator Room Series",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 53900,
+    "originalPrice": 58200,
+    "rating": 4.8,
+    "reviews": 97,
+    "stock": 19,
+    "badge": "Mirror Glass Door",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Glass Door Refrigerator Room Series at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-glass-door-refrigerator-room-series-1.jpg",
+    "images": [
+      "/images/products/pel-glass-door-refrigerator-room-series-1.jpg",
+      "/images/products/pel-glass-door-refrigerator-room-series-2.jpg",
+      "/images/products/pel-glass-door-refrigerator-room-series-3.jpg",
+      "/images/products/pel-glass-door-refrigerator-room-series-4.jpg",
+      "/images/products/pel-glass-door-refrigerator-room-series-5.jpg",
+      "/images/products/pel-glass-door-refrigerator-room-series-6.jpg"
+    ],
+    "colors": [
+      "Red Blaze",
+      "Pattern Mirror Impression"
+    ],
+    "specs": {
+      "Capacity / Series": "1400 (140 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "PEL-PEL-GLASS-DOOR-REF-37",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-glass-door-refrigerator-room-series"
+  },
+  {
+    "id": "pel-38",
+    "name": "PEL InverterOn AERO Extend (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 115900,
+    "originalPrice": 125200,
+    "rating": 4.9,
+    "reviews": 104,
+    "stock": 22,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn AERO Extend (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-aero-plus-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-aero-plus-air-conditioner-1.png",
+      "/images/products/pel-inverteron-aero-plus-air-conditioner-2.png",
+      "/images/products/pel-inverteron-aero-plus-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-AER-38",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-aero-plus-air-conditioner"
+  },
+  {
+    "id": "pel-39",
+    "name": "PEL InverterOn Turbo DC Ultimate T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 128900,
+    "originalPrice": 139200,
+    "rating": 5,
+    "reviews": 111,
+    "stock": 25,
+    "badge": "Turbo DC Ultimate",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL InverterOn Turbo DC Ultimate T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-turbo-dc-ultimate-h-c-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-turbo-dc-ultimate-h-c-air-conditioner-1.png",
+      "/images/products/pel-inverteron-turbo-dc-ultimate-h-c-air-conditioner-2.png",
+      "/images/products/pel-inverteron-turbo-dc-ultimate-h-c-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton / 2 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-TUR-39",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-turbo-dc-ultimate-h-c-air-conditioner"
+  },
+  {
+    "id": "pel-40",
+    "name": "PEL Chef Digital Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 29900,
+    "originalPrice": 32300,
+    "rating": 4.7,
+    "reviews": 118,
+    "stock": 28,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL Chef Digital Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-chef-microwave-oven-26-ltr-1.jpg",
+    "images": [
+      "/images/products/pel-chef-microwave-oven-26-ltr-1.jpg",
+      "/images/products/pel-chef-microwave-oven-26-ltr-2.jpg",
+      "/images/products/pel-chef-microwave-oven-26-ltr-3.jpg",
+      "/images/products/pel-chef-microwave-oven-26-ltr-4.jpg",
+      "/images/products/pel-chef-microwave-oven-26-ltr-5.jpg"
+    ],
+    "colors": [
+      "23 L",
+      "26 L"
+    ],
+    "specs": {
+      "Capacity": "Black",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PMO 23 CHEF",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-chef-microwave-oven-26-ltr"
+  },
+  {
+    "id": "pel-41",
+    "name": "PEL Convection Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 39900,
+    "originalPrice": 43100,
+    "rating": 4.8,
+    "reviews": 125,
+    "stock": 31,
+    "badge": "Convection + Air Fryer",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Convection Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-convection-microwave-1.png",
+    "images": [
+      "/images/products/pel-convection-microwave-1.png",
+      "/images/products/pel-convection-microwave-2.png"
+    ],
+    "colors": [
+      "25 LTR",
+      "30 LTR"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-CONVECTION-MIC-41",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-convection-microwave"
+  },
+  {
+    "id": "pel-42",
+    "name": "PEL Silver Line 23 LTR Microwave Oven Digital",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 27900,
+    "originalPrice": 30100,
+    "rating": 4.9,
+    "reviews": 132,
+    "stock": 9,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Silver Line 23 LTR Microwave Oven Digital at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-silver-line-microwave-digital-1.png",
+    "images": [
+      "/images/products/pel-silver-line-microwave-digital-1.png",
+      "/images/products/pel-silver-line-microwave-digital-2.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "specs": {
+      "Capacity": "23 LTR",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "PEL-PEL-SILVER-LINE-MI-42",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-silver-line-microwave-digital"
+  },
+  {
+    "id": "pel-43",
+    "name": "Panasonic XKF Inverter T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "Panasonic",
+    "price": 146900,
+    "originalPrice": 158700,
+    "rating": 5,
+    "reviews": 139,
+    "stock": 12,
+    "badge": "T3 Full DC Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine Panasonic XKF Inverter T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/panasonic-inverter-air-conditioner-1.png",
+    "images": [
+      "/images/products/panasonic-inverter-air-conditioner-1.png",
+      "/images/products/panasonic-inverter-air-conditioner-2.png",
+      "/images/products/panasonic-inverter-air-conditioner-3.png",
+      "/images/products/panasonic-inverter-air-conditioner-4.png",
+      "/images/products/panasonic-inverter-air-conditioner-5.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton / 2 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PANASONIC-INVERTER-43",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "panasonic-inverter-air-conditioner"
+  },
+  {
+    "id": "pel-44",
+    "name": "PEL InverterOn Jumbo DC Prime Wifi T3 (H&C) Air Conditioner",
+    "category": "Air Conditioners",
+    "brand": "PEL",
+    "price": 138900,
+    "originalPrice": 150000,
+    "rating": 4.7,
+    "reviews": 146,
+    "stock": 15,
+    "badge": "T3 InverterOn",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL InverterOn Jumbo DC Prime Wifi T3 (H&C) Air Conditioner at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts & Free Installation Kit, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-inverteron-jumbo-dc-prime-wifi-t3-air-conditioner-1.png",
+    "images": [
+      "/images/products/pel-inverteron-jumbo-dc-prime-wifi-t3-air-conditioner-1.png",
+      "/images/products/pel-inverteron-jumbo-dc-prime-wifi-t3-air-conditioner-2.png",
+      "/images/products/pel-inverteron-jumbo-dc-prime-wifi-t3-air-conditioner-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Tonnage": "1 Ton / 1.5 Ton / 2 Ton",
+      "Compressor": "T3 Extreme Climate Full DC Inverter",
+      "Cooling & Heating": "Heat & Cool (All Seasons)",
+      "Low Voltage Startup": "Operates down to 140V without stabilizer",
+      "Energy Saving": "Up to 65% - 75% Electricity Saving",
+      "Refrigerant": "Eco-Friendly R410A / R32 Gas"
+    },
+    "sku": "PEL-PEL-INVERTERON-JUM-44",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts & Free Installation Kit",
+    "slug": "pel-inverteron-jumbo-dc-prime-wifi-t3-air-conditioner"
+  },
+  {
+    "id": "pel-45",
+    "name": "PEL Vertical Deep Freezer",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 89900,
+    "originalPrice": 97100,
+    "rating": 4.8,
+    "reviews": 153,
+    "stock": 18,
+    "badge": "Vertical Multi-Drawer",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Vertical Deep Freezer at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-vertical-deep-freezer-1.png",
+    "images": [
+      "/images/products/pel-vertical-deep-freezer-1.png",
+      "/images/products/pel-vertical-deep-freezer-2.jpg",
+      "/images/products/pel-vertical-deep-freezer-3.png",
+      "/images/products/pel-vertical-deep-freezer-4.png",
+      "/images/products/pel-vertical-deep-freezer-5.png",
+      "/images/products/pel-vertical-deep-freezer-6.png"
+    ],
+    "colors": [
+      "Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "6D (239 LTR) / 7D (281 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "PVF 6D",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-vertical-deep-freezer"
+  },
+  {
+    "id": "pel-46",
+    "name": "PEL Arctic Pro Deep Freezer - Twin Door",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 89900,
+    "originalPrice": 97100,
+    "rating": 4.9,
+    "reviews": 160,
+    "stock": 21,
+    "badge": "Sub-Zero Arctic Freezing",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Arctic Pro Deep Freezer - Twin Door at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-arctic-pro-deep-freezer-twin-door-1.png",
+    "images": [
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-1.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-2.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-3.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-4.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-5.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-6.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-7.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-8.png",
+      "/images/products/pel-arctic-pro-deep-freezer-twin-door-9.png"
+    ],
+    "colors": [
+      "White",
+      "Light Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "135 (370 LTR) / 155 (410 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "135 Deep Freezer",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-arctic-pro-deep-freezer-twin-door"
+  },
+  {
+    "id": "pel-47",
+    "name": "PEL Arctic Pro Deep Freezer - Single Door",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 76900,
+    "originalPrice": 83100,
+    "rating": 5,
+    "reviews": 167,
+    "stock": 24,
+    "badge": "Sub-Zero Arctic Freezing",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Arctic Pro Deep Freezer - Single Door at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-arctic-pro-deep-freezer-single-door-1.png",
+    "images": [
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-1.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-2.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-3.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-4.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-5.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-6.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-7.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-8.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-9.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-10.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-11.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-12.png",
+      "/images/products/pel-arctic-pro-deep-freezer-single-door-13.png"
+    ],
+    "colors": [
+      "White",
+      "Light Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "100 (275 LTR) / 130 (370 LTR) / 150 (410 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "100 Deep Freezer",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-arctic-pro-deep-freezer-single-door"
+  },
+  {
+    "id": "pel-48",
+    "name": "PEL Washing Machine Fully Auto",
+    "category": "Washing Machines",
+    "brand": "PEL",
+    "price": 67900,
+    "originalPrice": 73300,
+    "rating": 4.7,
+    "reviews": 174,
+    "stock": 27,
+    "badge": "One-Touch Fuzzy Logic",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL Washing Machine Fully Auto at the official PEL dealership. Backed by 10 Years Motor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-washing-machine-fully-auto-1.png",
+    "images": [
+      "/images/products/pel-washing-machine-fully-auto-1.png",
+      "/images/products/pel-washing-machine-fully-auto-2.png",
+      "/images/products/pel-washing-machine-fully-auto-3.png",
+      "/images/products/pel-washing-machine-fully-auto-4.png",
+      "/images/products/pel-washing-machine-fully-auto-5.png",
+      "/images/products/pel-washing-machine-fully-auto-6.png"
+    ],
+    "colors": [
+      "Metallic Grey",
+      "Golden"
+    ],
+    "specs": {
+      "Wash Capacity": "900 / 1100",
+      "Mechanism": "One-Touch Automated Fuzzy Logic",
+      "Drum / Body": "Diamond Stainless Steel Drum / Rust-Proof Double-Wall Body",
+      "Features": "Air Dry High-Speed Spin, Child Lock, Lint Filter"
+    },
+    "sku": "900 - Grey Metallic",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Motor + 1 Year Parts Official Warranty",
+    "slug": "pel-washing-machine-fully-auto"
+  },
+  {
+    "id": "pel-49",
+    "name": "PEL Washing Machine Semi Auto Twin Tub",
+    "category": "Washing Machines",
+    "brand": "PEL",
+    "price": 40900,
+    "originalPrice": 44200,
+    "rating": 4.8,
+    "reviews": 181,
+    "stock": 30,
+    "badge": "Turbo Super Wave Wash",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Washing Machine Semi Auto Twin Tub at the official PEL dealership. Backed by 10 Years Motor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-washing-machine-semi-auto-twin-tub-1.png",
+    "images": [
+      "/images/products/pel-washing-machine-semi-auto-twin-tub-1.png",
+      "/images/products/pel-washing-machine-semi-auto-twin-tub-2.png"
+    ],
+    "colors": [
+      "White",
+      "Green"
+    ],
+    "specs": {
+      "Wash Capacity": "1050 SA",
+      "Mechanism": "Twin Tub Turbo High-Torque Pulsator",
+      "Drum / Body": "Diamond Stainless Steel Drum / Rust-Proof Double-Wall Body",
+      "Features": "Air Dry High-Speed Spin, Child Lock, Lint Filter"
+    },
+    "sku": "1050T Twin Tub - White",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Motor + 1 Year Parts Official Warranty",
+    "slug": "pel-washing-machine-semi-auto-twin-tub"
+  },
+  {
+    "id": "pel-50",
+    "name": "PEL Washing Machine Semi Auto",
+    "category": "Washing Machines",
+    "brand": "PEL",
+    "price": 26500,
+    "originalPrice": 28600,
+    "rating": 4.9,
+    "reviews": 188,
+    "stock": 8,
+    "badge": "Turbo Super Wave Wash",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Washing Machine Semi Auto at the official PEL dealership. Backed by 10 Years Motor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-washing-machine-semi-auto-1.png",
+    "images": [
+      "/images/products/pel-washing-machine-semi-auto-1.png",
+      "/images/products/pel-washing-machine-semi-auto-2.png",
+      "/images/products/pel-washing-machine-semi-auto-3.png",
+      "/images/products/pel-washing-machine-semi-auto-4.png"
+    ],
+    "colors": [
+      "White",
+      "Green"
+    ],
+    "specs": {
+      "Wash Capacity": "8050 SA / 1250 SA",
+      "Mechanism": "Twin Tub Turbo High-Torque Pulsator",
+      "Drum / Body": "Diamond Stainless Steel Drum / Rust-Proof Double-Wall Body",
+      "Features": "Air Dry High-Speed Spin, Child Lock, Lint Filter"
+    },
+    "sku": "8050 - White Lid",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Motor + 1 Year Parts Official Warranty",
+    "slug": "pel-washing-machine-semi-auto"
+  },
+  {
+    "id": "pel-51",
+    "name": "PEL Arctic InverterOn Deep Freezer - Twin Door",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 96500,
+    "originalPrice": 104200,
+    "rating": 5,
+    "reviews": 195,
+    "stock": 11,
+    "badge": "Sub-Zero Arctic Freezing",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Arctic InverterOn Deep Freezer - Twin Door at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-1.png",
+    "images": [
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-1.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-2.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-3.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-4.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-5.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-6.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-7.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-8.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-twin-door-9.png"
+    ],
+    "colors": [
+      "White",
+      "Light Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "370 LTR / 410 LTR",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "Deep Freezer 135",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-arctic-inverteron-deep-freezer-twin-door"
+  },
+  {
+    "id": "pel-52",
+    "name": "PEL Arctic InverterOn Deep Freezer - Single Door",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 82900,
+    "originalPrice": 89500,
+    "rating": 4.7,
+    "reviews": 22,
+    "stock": 14,
+    "badge": "Sub-Zero Arctic Freezing",
+    "isBestSeller": false,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL Arctic InverterOn Deep Freezer - Single Door at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-arctic-inverteron-deep-freezer-1.png",
+    "images": [
+      "/images/products/pel-arctic-inverteron-deep-freezer-1.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-2.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-3.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-4.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-5.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-6.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-7.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-8.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-9.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-10.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-11.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-12.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-13.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-14.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-15.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-16.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-17.png",
+      "/images/products/pel-arctic-inverteron-deep-freezer-18.png"
+    ],
+    "colors": [
+      "White",
+      "Light Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "100 (275 LTR) / 130 (370) LTR / 150 (410 LTR) / 180 (495 LTR)",
+      "Cooling System": "InverterOn Variable Speed Smart Cooling",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "100 Deep Freezer",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-arctic-inverteron-deep-freezer"
+  },
+  {
+    "id": "pel-53",
+    "name": "PEL Life Pro Refrigerator Room Series",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 47500,
+    "originalPrice": 51300,
+    "rating": 4.8,
+    "reviews": 29,
+    "stock": 17,
+    "badge": "Low Voltage Startup",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Life Pro Refrigerator Room Series at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-life-pro-refrigerator-room-series-1.png",
+    "images": [
+      "/images/products/pel-life-pro-refrigerator-room-series-1.png",
+      "/images/products/pel-life-pro-refrigerator-room-series-2.png",
+      "/images/products/pel-life-pro-refrigerator-room-series-3.png",
+      "/images/products/pel-life-pro-refrigerator-room-series-4.png"
+    ],
+    "colors": [
+      "ROYAL TEXTURE GREY (RTG)"
+    ],
+    "specs": {
+      "Capacity / Series": "1100 (110 LTR) / 1400 (140 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "PLP1100-BMG",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-life-pro-refrigerator-room-series"
+  },
+  {
+    "id": "pel-54",
+    "name": "PEL 215 Pearl Water Dispenser (Without Refrigerator Compartment)",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 35500,
+    "originalPrice": 38300,
+    "rating": 4.9,
+    "reviews": 36,
+    "stock": 20,
+    "badge": "Low Voltage Startup",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL 215 Pearl Water Dispenser (Without Refrigerator Compartment) at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-215-pearl-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-215-pearl-water-dispenser-1.png",
+      "/images/products/pel-215-pearl-water-dispenser-2.png",
+      "/images/products/pel-215-pearl-water-dispenser-3.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Capacity / Series": "2000 to 22260 Series (168L - 408L)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "PEL-PEL-215-PEARL-WATE-54",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-215-pearl-water-dispenser"
+  },
+  {
+    "id": "pel-55",
+    "name": "PEL 316 Premier Water Dispenser",
+    "category": "Water Dispensers",
+    "brand": "PEL",
+    "price": 37500,
+    "originalPrice": 40500,
+    "rating": 5,
+    "reviews": 43,
+    "stock": 23,
+    "badge": "3-Tap Instant Chilling",
+    "isBestSeller": true,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL 316 Premier Water Dispenser at the official PEL dealership. Backed by 3 Years Compressor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-316-premier-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-316-premier-water-dispenser-1.png",
+      "/images/products/pel-316-premier-water-dispenser-2.png",
+      "/images/products/pel-316-premier-water-dispenser-3.png",
+      "/images/products/pel-316-premier-water-dispenser-4.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Taps": "3 Taps (Instant Cold, Normal, Piping Hot)",
+      "Tank Material": "100% Rust-Proof Food-Grade Stainless Steel SS304",
+      "Refrigerator Cabinet": "Spacious Chilled Lower Cabinet",
+      "Safety": "Child Safety Lock on Hot Water Faucet",
+      "Compressor": "High-Efficiency Tropical Cooling Compressor"
+    },
+    "sku": "PEL-PEL-316-PREMIER-WA-55",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "3 Years Compressor + 1 Year Parts Official Warranty",
+    "slug": "pel-316-premier-water-dispenser"
+  },
+  {
+    "id": "pel-56",
+    "name": "PEL 315 Smart Water Dispenser",
+    "category": "Water Dispensers",
+    "brand": "PEL",
+    "price": 36500,
+    "originalPrice": 39400,
+    "rating": 4.7,
+    "reviews": 50,
+    "stock": 26,
+    "badge": "3-Tap Instant Chilling",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": true,
+    "description": "Shop the genuine PEL 315 Smart Water Dispenser at the official PEL dealership. Backed by 3 Years Compressor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-315-smart-water-dispenser-1.png",
+    "images": [
+      "/images/products/pel-315-smart-water-dispenser-1.png",
+      "/images/products/pel-315-smart-water-dispenser-2.png",
+      "/images/products/pel-315-smart-water-dispenser-3.png",
+      "/images/products/pel-315-smart-water-dispenser-4.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "specs": {
+      "Taps": "3 Taps (Instant Cold, Normal, Piping Hot)",
+      "Tank Material": "100% Rust-Proof Food-Grade Stainless Steel SS304",
+      "Refrigerator Cabinet": "Spacious Chilled Lower Cabinet",
+      "Safety": "Child Safety Lock on Hot Water Faucet",
+      "Compressor": "High-Efficiency Tropical Cooling Compressor"
+    },
+    "sku": "PEL-PEL-315-SMART-WATE-56",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "3 Years Compressor + 1 Year Parts Official Warranty",
+    "slug": "pel-315-smart-water-dispenser"
+  },
+  {
+    "id": "pel-57",
+    "name": "PEL Glamour Microwave Oven 30 Ltr",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 36900,
+    "originalPrice": 39900,
+    "rating": 4.8,
+    "reviews": 57,
+    "stock": 29,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Glamour Microwave Oven 30 Ltr at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-glamour-microwave-1.png",
+    "images": [
+      "/images/products/pel-glamour-microwave-1.png"
+    ],
+    "colors": [
+      "30 LTR"
+    ],
+    "specs": {
+      "Capacity": "20L, 23L, 28L, 30L",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "Pel Glamour 30ltr Grill",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-glamour-microwave"
+  },
+  {
+    "id": "pel-58",
+    "name": "PEL Silver Line 23 LTR Microwave Oven Manual",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 25900,
+    "originalPrice": 28000,
+    "rating": 4.9,
+    "reviews": 64,
+    "stock": 32,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Silver Line 23 LTR Microwave Oven Manual at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-silver-line-microwave-manual-1.png",
+    "images": [
+      "/images/products/pel-silver-line-microwave-manual-1.png",
+      "/images/products/pel-silver-line-microwave-manual-2.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "specs": {
+      "Capacity": "23 LTR",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Mechanical Precision Knobs",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "Silver Line Black Manual 23ltr",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-silver-line-microwave-manual"
+  },
+  {
+    "id": "pel-59",
+    "name": "PEL Desire Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 29900,
+    "originalPrice": 32300,
+    "rating": 5,
+    "reviews": 71,
+    "stock": 10,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Desire Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-desire-microwave-1.png",
+    "images": [
+      "/images/products/pel-desire-microwave-1.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "specs": {
+      "Capacity": "23 LTR / 26 LTR / 30 LTR",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "Desire Black 23ltr",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-desire-microwave"
+  },
+  {
+    "id": "pel-60",
+    "name": "PEL Classic Microwave",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 17900,
+    "originalPrice": 19300,
+    "rating": 4.7,
+    "reviews": 78,
+    "stock": 13,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": true,
+    "isNew": true,
+    "featured": false,
+    "description": "Shop the genuine PEL Classic Microwave at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-classic-microwave-1.png",
+    "images": [
+      "/images/products/pel-classic-microwave-1.png",
+      "/images/products/pel-classic-microwave-2.png",
+      "/images/products/pel-classic-microwave-3.png",
+      "/images/products/pel-classic-microwave-4.png"
+    ],
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "specs": {
+      "Capacity": "20 LTR",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "Classic White 20ltr",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-classic-microwave"
+  },
+  {
+    "id": "pel-61",
+    "name": "PEL Classic Plus Microwave Oven",
+    "category": "Microwave Ovens",
+    "brand": "PEL",
+    "price": 17900,
+    "originalPrice": 19300,
+    "rating": 4.8,
+    "reviews": 85,
+    "stock": 16,
+    "badge": "Preset Auto Menu",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Classic Plus Microwave Oven at the official PEL dealership. Backed by 2 Years Magnetron + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-classic-plus-microwave-1.png",
+    "images": [
+      "/images/products/pel-classic-plus-microwave-1.png",
+      "/images/products/pel-classic-plus-microwave-2.png",
+      "/images/products/pel-classic-plus-microwave-3.png",
+      "/images/products/pel-classic-plus-microwave-4.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "specs": {
+      "Capacity": "20 LTR",
+      "Cooking Modes": "Solo Microwave Reheat & Speed Defrost",
+      "Controls": "Digital Touch LED Panel",
+      "Auto Cook Menus": "Built-in Pakistani Recipe Presets"
+    },
+    "sku": "Classic Plus Black 20ltr",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "2 Years Magnetron + 1 Year Parts Official Warranty",
+    "slug": "pel-classic-plus-microwave"
+  },
+  {
+    "id": "pel-62",
+    "name": "PEL Smart Washing Machine Fully Auto",
+    "category": "Washing Machines",
+    "brand": "PEL",
+    "price": 72900,
+    "originalPrice": 78700,
+    "rating": 4.9,
+    "reviews": 92,
+    "stock": 19,
+    "badge": "Smart Direct Drive Inverter",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Smart Washing Machine Fully Auto at the official PEL dealership. Backed by 10 Years Motor + 1 Year Parts Official Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-washing-machine-smart-fully-1.png",
+    "images": [
+      "/images/products/pel-washing-machine-smart-fully-1.png",
+      "/images/products/pel-washing-machine-smart-fully-2.png",
+      "/images/products/pel-washing-machine-smart-fully-3.png"
+    ],
+    "colors": [
+      "Metallic Grey"
+    ],
+    "specs": {
+      "Wash Capacity": "900i / 1100i",
+      "Mechanism": "Direct Drive Smart Inverter Motor",
+      "Drum / Body": "Diamond Stainless Steel Drum / Rust-Proof Double-Wall Body",
+      "Features": "Air Dry High-Speed Spin, Child Lock, Lint Filter"
+    },
+    "sku": "900i - Grey Metallic",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Motor + 1 Year Parts Official Warranty",
+    "slug": "pel-washing-machine-smart-fully"
+  },
+  {
+    "id": "pel-63",
+    "name": "PEL Life Pro Refrigerator",
+    "category": "Refrigerators & Freezers",
+    "brand": "PEL",
+    "price": 63900,
+    "originalPrice": 69000,
+    "rating": 5,
+    "reviews": 99,
+    "stock": 22,
+    "badge": "Low Voltage Startup",
+    "isBestSeller": false,
+    "isNew": false,
+    "featured": false,
+    "description": "Shop the genuine PEL Life Pro Refrigerator at the official PEL dealership. Backed by 10 Years Compressor + 1 Year Parts Warranty, cutting-edge energy efficiency, and authentic build quality engineered for Pakistani homes.",
+    "image": "/images/products/pel-life-pro-refrigerator-1.png",
+    "images": [
+      "/images/products/pel-life-pro-refrigerator-1.png",
+      "/images/products/pel-life-pro-refrigerator-2.png",
+      "/images/products/pel-life-pro-refrigerator-3.png",
+      "/images/products/pel-life-pro-refrigerator-4.png",
+      "/images/products/pel-life-pro-refrigerator-5.png",
+      "/images/products/pel-life-pro-refrigerator-6.png",
+      "/images/products/pel-life-pro-refrigerator-7.png",
+      "/images/products/pel-life-pro-refrigerator-8.png",
+      "/images/products/pel-life-pro-refrigerator-9.png",
+      "/images/products/pel-life-pro-refrigerator-10.png",
+      "/images/products/pel-life-pro-refrigerator-11.png",
+      "/images/products/pel-life-pro-refrigerator-12.png"
+    ],
+    "colors": [
+      "Metallic Golden Brown",
+      "Metallic Texture Grey",
+      "Gracious Graphite",
+      "Brushed Metallic Grey"
+    ],
+    "specs": {
+      "Capacity / Series": "2000 (168 LTR) / 2200 (194 LTR) / 2350 (240 LTR) / 2550 (260 LTR) / 6360 (310 LTR) / 6460 (334 LTR) / 21860 (354 LTR) / 22260 (408 LTR)",
+      "Cooling System": "Direct Cool Deep Freeze Technology",
+      "Insulation": "High-Density Thick PUF for 6+ Hours Cold Retention",
+      "Voltage Stabilizer": "Built-in LVS (Works from 100V to 260V)",
+      "Shelves & Gasket": "Toughened Glass / Food Grade Anti-Bacterial"
+    },
+    "sku": "2000 Metallic Golden Brown",
+    "shipping": "Free Insured Delivery in Faisalabad & Major Cities (2-4 Days Nationwide)",
+    "warranty": "10 Years Compressor + 1 Year Parts Warranty",
+    "slug": "pel-life-pro-refrigerator"
+  }
+]
+
+export const products = productsBase.map((product) => ({
+  ...product,
+  slug: product.slug || slugify(product.name),
+}))
+
+export const heroSlides = [
+  {
+    id: 'slide-1',
+    eyebrow: 'Authorized PEL Dealership',
+    title: 'Experience PEL InverterOn & Smart Living Appliances',
+    description:
+      'Shop official T3 Full DC Inverter ACs, Digitron Ultra Glass Door Refrigerators, QLED Google TVs, and Kitchen Pro Microwaves with nationwide brand warranty.',
+    cta: 'Shop PEL Appliances',
+    secondaryCta: 'View Inverter ACs',
+    image: productsBase[11]?.images?.[0] || productsBase[0]?.images?.[0],
+    stats: [
+      { label: 'Official Warranty', value: '100% Genuine' },
+      { label: 'Compressor Warranty', value: 'Up to 10 Yrs' },
+      { label: 'Energy Savings', value: 'Up to 65%' },
+    ],
+  },
+  {
+    id: 'slide-2',
+    eyebrow: 'Beat the Heat in 2026',
+    title: 'T3 Extreme Tropical ACs Engineered for 53°C Heat',
+    description:
+      'Explore the Jumbo DC Prime, Turbo DC Ultimate, and AERO Extend series featuring instant 30-second hyper cooling and low-voltage operation down to 140V.',
+    cta: 'Explore InverterOn',
+    secondaryCta: 'See Best Sellers',
+    image: productsBase[38]?.images?.[0] || productsBase[2]?.images?.[0],
+    stats: [
+      { label: 'Low Voltage Start', value: 'Down to 140V' },
+      { label: 'Hyper Cooling', value: '30 Seconds' },
+      { label: 'Doorstep Delivery', value: 'Nationwide' },
+    ],
+  },
+]
+
+export const testimonials = [
+  {
+    id: 't1',
+    name: 'Muhammad Tariq',
+    role: 'Verified PEL Customer (Faisalabad)',
+    quote: 'Ordered the PEL Jumbo DC Prime 1.5 Ton AC. The cooling is incredible even in 47°C summer heat, and electricity bills dropped noticeably!',
+  },
+  {
+    id: 't2',
+    name: 'Dr. Ayesha Malik',
+    role: 'Homeowner (Lahore)',
+    quote: 'The PEL Digitron Curved Glass Door refrigerator looks stunning in our kitchen and keeps food fresh for days during load shedding.',
+  },
+  {
+    id: 't3',
+    name: 'Khurram Shahzad',
+    role: 'Office Manager (Islamabad)',
+    quote: 'Amanat Electronics delivered original box-packed PEL 3-Tap Water Dispensers with stamped official warranty cards within 48 hours.',
+  },
+]
+
+export const blogPosts = [
+  {
+    id: 'b1',
+    title: 'Why PEL T3 Full DC Inverter ACs Outperform Standard ACs in Pakistani Summers',
+    excerpt: 'An in-depth guide on T3 tropicalized compressors, low voltage startup at 140V, and electricity cost calculations.',
+    category: 'Air Conditioners',
+    readTime: '4 min read',
+  },
+  {
+    id: 'b2',
+    title: 'PEL Digitron Ultra vs Glass Door Series: Choosing the Right Refrigerator for Your Family',
+    excerpt: 'Detailed breakdown of direct cool freezing times, PUF insulation cold retention, and food preservation capacity.',
+    category: 'Refrigerators',
+    readTime: '5 min read',
+  },
+  {
+    id: 'b3',
+    title: 'Healthy Cooking Made Easy: PEL Kitchen Pro Convection Air Fryer Microwave Guide',
+    excerpt: 'How to bake, grill, and air-fry traditional Pakistani recipes with 80% less oil using PEL Kitchen Pro.',
+    category: 'Kitchen Appliances',
+    readTime: '4 min read',
+  },
+]
+
+export const instagramGallery = productsBase.slice(0, 6).map((p, index) => ({
+  id: `ig-${index + 1}`,
+  image: p.images[0],
+  alt: p.name,
+}))
