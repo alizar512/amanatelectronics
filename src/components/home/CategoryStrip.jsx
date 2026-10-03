@@ -1,27 +1,125 @@
-import { memo } from 'react'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import {
+  FaSnowflake,
+  FaTv,
+  FaBlender,
+  FaTint,
+  FaTshirt,
+  FaThermometerHalf,
+  FaFan,
+  FaBolt,
+  FaTags,
+} from 'react-icons/fa'
+import { getCategories } from '../../services/catalogService'
 
-export const CategoryStrip = memo(({ categories }) => (
-  <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-    {categories.map((category) => (
-      <article key={category.id} className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_70px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-slate-900/75 dark:shadow-[0_22px_60px_rgba(2,6,23,0.38)]">
-        <div className={`absolute inset-x-0 top-0 h-24 bg-gradient-to-r ${category.accent} opacity-80 blur-2xl transition duration-500 group-hover:opacity-100`} />
-        <div className="relative">
-          <div className="mb-5 flex items-center justify-between">
-            <div className={`h-16 w-16 rounded-[22px] bg-gradient-to-br ${category.accent} shadow-lg`} />
-            <span className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 backdrop-blur dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300">
-              Explore
-            </span>
-          </div>
-          <h3 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">{category.name}</h3>
-          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{category.description}</p>
-          <div className="mt-5 h-px bg-gradient-to-r from-slate-200 to-transparent dark:from-white/10" />
-          <p className="mt-4 text-sm font-medium text-slate-500 transition group-hover:text-blue-600 dark:text-slate-400 dark:group-hover:text-blue-300">
-            Curated category experience
+const getCategoryIcon = (categoryName = '') => {
+  const name = categoryName.toLowerCase()
+  if (name.includes('air conditioner') || name.includes('ac') || name.includes('cooling')) return FaSnowflake
+  if (name.includes('refrigerator') || name.includes('freezer') || name.includes('fridge')) return FaThermometerHalf
+  if (name.includes('tv') || name.includes('led') || name.includes('screen')) return FaTv
+  if (name.includes('kitchen') || name.includes('microwave') || name.includes('oven') || name.includes('fryer')) return FaBlender
+  if (name.includes('water') || name.includes('dispenser')) return FaTint
+  if (name.includes('washing') || name.includes('laundry') || name.includes('dryer')) return FaTshirt
+  if (name.includes('fan') || name.includes('cooler')) return FaFan
+  if (name.includes('iron') || name.includes('geyser') || name.includes('heater')) return FaBolt
+  return FaTags
+}
+
+const getCategoryBgColor = (index) => {
+  const colors = [
+    { bg: '#e8f4fd', icon: '#0070c9' },
+    { bg: '#fff3e0', icon: '#e65100' },
+    { bg: '#e8f5e9', icon: '#2e7d32' },
+    { bg: '#fce4ec', icon: '#c62828' },
+    { bg: '#f3e5f5', icon: '#7b1fa2' },
+    { bg: '#e0f2f1', icon: '#00695c' },
+    { bg: '#fff8e1', icon: '#f57f17' },
+    { bg: '#e8eaf6', icon: '#283593' },
+    { bg: '#fbe9e7', icon: '#bf360c' },
+    { bg: '#e1f5fe', icon: '#0277bd' },
+  ]
+  return colors[index % colors.length]
+}
+
+export const CategoryStrip = () => {
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let isActive = true
+    getCategories().then((data) => {
+      if (isActive) {
+        setCategories(Array.isArray(data) ? data : data.categories || [])
+        setLoading(false)
+      }
+    })
+    return () => { isActive = false }
+  }, [])
+
+  return (
+    <section className="section-gap" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <div className="container-shell">
+        {/* Section Title */}
+        <div className="mb-8 text-center">
+          <h2 className="section-title">Shop by Category</h2>
+          <p className="mt-4 text-sm" style={{ color: 'var(--color-alt-text)' }}>
+            Browse our wide range of official PEL home appliances
           </p>
         </div>
-      </article>
-    ))}
-  </div>
-))
 
-CategoryStrip.displayName = 'CategoryStrip'
+        {/* Category Grid */}
+        {loading ? (
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="h-32 animate-pulse rounded-sm" style={{ backgroundColor: 'var(--color-bg-alt)' }} />
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {categories.map((category, index) => {
+              const Icon = getCategoryIcon(category.name)
+              const colors = getCategoryBgColor(index)
+              return (
+                <Link
+                  key={category.id || category.name}
+                  to={`/shop?category=${encodeURIComponent(category.name.toLowerCase())}`}
+                  className="group flex flex-col items-center justify-center p-5 text-center transition-all duration-300"
+                  style={{
+                    backgroundColor: colors.bg,
+                    border: '1px solid transparent',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-brand)'
+                    e.currentTarget.style.transform = 'translateY(-4px)'
+                    e.currentTarget.style.boxShadow = 'var(--shadow-md)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'transparent'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
+                >
+                  <div
+                    className="mb-3 flex h-14 w-14 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: `${colors.icon}15`, color: colors.icon }}
+                  >
+                    <Icon size={24} />
+                  </div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider leading-tight" style={{ color: 'var(--color-headings)' }}>
+                    {category.name}
+                  </h3>
+                  {category.count !== undefined && (
+                    <span className="mt-1 text-[10px]" style={{ color: 'var(--color-alt-text)' }}>
+                      {category.count} Products
+                    </span>
+                  )}
+                </Link>
+              )
+            })}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

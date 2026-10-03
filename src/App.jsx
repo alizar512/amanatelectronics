@@ -16,8 +16,8 @@ function App() {
             <StoreProvider>
               <Suspense
                 fallback={
-                  <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-slate-950">
-                    <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+                  <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: 'var(--color-bg)' }}>
+                    <div className="h-10 w-10 animate-spin rounded-full border-4" style={{ borderColor: 'var(--color-border-light)', borderTopColor: 'var(--color-brand)' }} />
                   </div>
                 }
               >

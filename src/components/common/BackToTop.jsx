@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IoArrowUp } from 'react-icons/io5'
 
 export const BackToTop = () => {
@@ -6,7 +6,7 @@ export const BackToTop = () => {
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300)
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -17,7 +17,11 @@ export const BackToTop = () => {
       type="button"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="focus-ring fixed right-4 bottom-24 z-50 rounded-full bg-slate-950 p-3 text-white shadow-xl dark:bg-white dark:text-slate-950"
+      className="fixed left-5 bottom-5 z-40 flex h-10 w-10 items-center justify-center shadow-lg transition-all hover:scale-110"
+      style={{
+        backgroundColor: 'var(--color-btn)',
+        color: '#ffffff',
+      }}
     >
       <IoArrowUp size={18} />
     </button>

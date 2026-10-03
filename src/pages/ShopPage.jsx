@@ -6,15 +6,22 @@ import { useStore } from '../context/StoreContext'
 import { useToast } from '../context/ToastContext'
 import { Seo } from '../components/common/Seo'
 import { Breadcrumbs } from '../components/common/Breadcrumbs'
-import { SectionHeading } from '../components/common/SectionHeading'
 import { ProductGrid } from '../components/catalog/ProductGrid'
 import { FiltersSidebar } from '../components/catalog/FiltersSidebar'
 import { Skeleton } from '../components/common/Skeleton'
-import { FaSpinner } from 'react-icons/fa'
+import { FaSpinner, FaTh, FaThList } from 'react-icons/fa'
+import { IoChevronDown } from 'react-icons/io5'
 
 const defaultFilters = { category: 'all', brand: 'all', availability: 'all', sort: 'featured' }
 const INITIAL_BATCH_SIZE = 16
 const LOAD_MORE_BATCH_SIZE = 12
+
+const sortOptions = [
+  { value: 'featured', label: 'Featured' },
+  { value: 'price-asc', label: 'Price: Low to High' },
+  { value: 'price-desc', label: 'Price: High to Low' },
+  { value: 'rating', label: 'Top Rated' },
+]
 
 export default function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -33,10 +40,10 @@ export default function ShopPage() {
     category: categoryParam,
   }))
   const [loading, setLoading] = useState(true)
+  const [viewMode, setViewMode] = useState('grid')
 
   const observerTarget = useRef(null)
 
-  // Sync category param from URL if changed
   useEffect(() => {
     if (categoryParam !== filters.category) {
       setFilters((prev) => ({ ...prev, category: categoryParam }))
@@ -44,7 +51,6 @@ export default function ShopPage() {
     }
   }, [categoryParam])
 
-  // Fetch dynamic categories
   useEffect(() => {
     let isActive = true
     getCategories().then((data) => {
@@ -53,12 +59,9 @@ export default function ShopPage() {
         setCategoriesList(cats.map((c) => c.name))
       }
     })
-    return () => {
-      isActive = false
-    }
+    return () => { isActive = false }
   }, [])
 
-  // Fetch filtered products
   useEffect(() => {
     let isActive = true
     setLoading(true)
@@ -73,19 +76,15 @@ export default function ShopPage() {
       setLoading(false)
     })
 
-    return () => {
-      isActive = false
-    }
+    return () => { isActive = false }
   }, [filters, queryParam])
 
-  // Slice visible products for lazy loading
   const visibleProducts = useMemo(() => {
     return products.slice(0, visibleCount)
   }, [products, visibleCount])
 
   const hasMore = visibleProducts.length < products.length
 
-  // Load more handler
   const loadMore = useCallback(() => {
     if (isLoadingMore || !hasMore) return
     setIsLoadingMore(true)
@@ -95,7 +94,6 @@ export default function ShopPage() {
     }, 200)
   }, [isLoadingMore, hasMore, products.length])
 
-  // IntersectionObserver for lazy loading
   useEffect(() => {
     const target = observerTarget.current
     if (!target || !hasMore) return
@@ -110,9 +108,7 @@ export default function ShopPage() {
     )
 
     observer.observe(target)
-    return () => {
-      observer.disconnect()
-    }
+    return () => { observer.disconnect() }
   }, [loadMore, hasMore])
 
   const options = useMemo(
@@ -157,33 +153,40 @@ export default function ShopPage() {
   }
 
   const categoryPills = useMemo(() => {
-    const defaultList = ['All', ...options.categories]
-    return defaultList
+    return ['All', ...options.categories]
   }, [options.categories])
 
-  return (
-    <div className="section-gap">
-      <Seo
-        title="Shop Catalog"
-        description="Browse premium electronics and home appliances with fast filters, instant search, category pills, and lazy loading."
-      />
-      <div className="container-shell">
-        <Breadcrumbs items={[{ label: 'Shop' }]} />
-        
-        <SectionHeading
-          eyebrow="Full Catalog"
-          title={
-            queryParam
-              ? `Results for "${queryParam}"`
-              : filters.category !== 'all'
-              ? `${filters.category.toUpperCase()} Collection`
-              : 'All Products & Appliances'
-          }
-          description="Browse official PEL products with instant specs, warranty, category filters, and smooth lazy loading."
-        />
+  const pageTitle = queryParam
+    ? `Results for "${queryParam}"`
+    : filters.category !== 'all'
+    ? `${filters.category.charAt(0).toUpperCase() + filters.category.slice(1)}`
+    : 'All Products'
 
-        {/* Category Filter Pills */}
-        <div className="mb-6 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
+  return (
+    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+      <Seo
+        title={`${pageTitle} — Amanat Electronics`}
+        description="Browse premium electronics and home appliances with fast filters, instant search, and easy navigation."
+      />
+
+      {/* Page Header */}
+      <div style={{ backgroundColor: 'var(--color-bg-alt)', borderBottom: '1px solid var(--color-border-light)' }}>
+        <div className="container-shell py-6">
+          <Breadcrumbs items={[{ label: 'Shop' }]} />
+          <h1 className="mt-2 text-2xl font-bold uppercase tracking-wider" style={{ color: 'var(--color-headings)' }}>
+            {pageTitle}
+          </h1>
+          {queryParam && (
+            <p className="mt-1 text-sm" style={{ color: 'var(--color-alt-text)' }}>
+              Showing results for "<strong>{queryParam}</strong>"
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className="container-shell py-6">
+        {/* Category Pills */}
+        <div className="mb-6 flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar">
           {categoryPills.map((cat) => {
             const isAll = cat === 'All'
             const isActive = isAll
@@ -194,19 +197,20 @@ export default function ShopPage() {
               <button
                 key={cat}
                 onClick={() => handlePillCategoryChange(cat)}
-                className={`flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                  isActive
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                    : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
-                }`}
+                className="whitespace-nowrap px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all"
+                style={{
+                  backgroundColor: isActive ? 'var(--color-brand)' : 'transparent',
+                  color: isActive ? 'var(--color-brand-text)' : 'var(--color-text)',
+                  border: `1px solid ${isActive ? 'var(--color-brand)' : 'var(--color-border)'}`,
+                }}
               >
-                <span>{cat}</span>
+                {cat}
               </button>
             )
           })}
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+        <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
           <FiltersSidebar
             filters={filters}
             options={options}
@@ -221,42 +225,121 @@ export default function ShopPage() {
             }}
           />
 
-          <div className="space-y-6">
-            <div className="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
-              <span>
-                Showing <strong className="text-slate-800 dark:text-slate-200">{visibleProducts.length}</strong> of{' '}
-                <strong className="text-slate-800 dark:text-slate-200">{products.length}</strong> products
+          <div>
+            {/* Toolbar */}
+            <div
+              className="mb-5 flex items-center justify-between border-b pb-4"
+              style={{ borderColor: 'var(--color-border-light)' }}
+            >
+              <span className="text-sm" style={{ color: 'var(--color-alt-text)' }}>
+                Showing <strong style={{ color: 'var(--color-headings)' }}>{visibleProducts.length}</strong> of{' '}
+                <strong style={{ color: 'var(--color-headings)' }}>{products.length}</strong> products
               </span>
-              <span className="hidden sm:inline">Optimized with fast lazy loading</span>
+
+              <div className="flex items-center gap-3">
+                {/* Sort */}
+                <div className="relative">
+                  <select
+                    value={filters.sort}
+                    onChange={(e) => setFilters((prev) => ({ ...prev, sort: e.target.value }))}
+                    className="appearance-none border py-2 pl-3 pr-8 text-xs uppercase tracking-wider outline-none"
+                    style={{
+                      borderColor: 'var(--color-border)',
+                      backgroundColor: 'var(--color-bg)',
+                      color: 'var(--color-text)',
+                    }}
+                  >
+                    {sortOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                  <IoChevronDown className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2" size={12} style={{ color: 'var(--color-alt-text)' }} />
+                </div>
+
+                {/* View toggle */}
+                <div className="hidden items-center gap-1 sm:flex">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className="flex h-8 w-8 items-center justify-center transition-colors"
+                    style={{
+                      backgroundColor: viewMode === 'grid' ? 'var(--color-brand)' : 'transparent',
+                      color: viewMode === 'grid' ? 'var(--color-brand-text)' : 'var(--color-alt-text)',
+                      border: `1px solid ${viewMode === 'grid' ? 'var(--color-brand)' : 'var(--color-border)'}`,
+                    }}
+                    aria-label="Grid view"
+                  >
+                    <FaTh size={12} />
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className="flex h-8 w-8 items-center justify-center transition-colors"
+                    style={{
+                      backgroundColor: viewMode === 'list' ? 'var(--color-brand)' : 'transparent',
+                      color: viewMode === 'list' ? 'var(--color-brand-text)' : 'var(--color-alt-text)',
+                      border: `1px solid ${viewMode === 'list' ? 'var(--color-brand)' : 'var(--color-border)'}`,
+                    }}
+                    aria-label="List view"
+                  >
+                    <FaThList size={12} />
+                  </button>
+                </div>
+              </div>
             </div>
 
+            {/* Product Grid */}
             {loading ? (
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                 {Array.from({ length: 6 }, (_, index) => (
-                  <Skeleton key={index} className="h-[420px] rounded-[32px]" />
+                  <Skeleton key={index} className="h-[380px]" />
                 ))}
               </div>
             ) : products.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-slate-300 p-12 text-center dark:border-slate-700">
-                <p className="text-base font-semibold text-slate-700 dark:text-slate-300">No products match your criteria</p>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Try clearing filters or search terms.</p>
+              <div
+                className="flex flex-col items-center justify-center py-16 text-center"
+                style={{ border: '2px dashed var(--color-border)' }}
+              >
+                <p className="text-lg font-bold" style={{ color: 'var(--color-headings)' }}>
+                  No products found
+                </p>
+                <p className="mt-2 text-sm" style={{ color: 'var(--color-alt-text)' }}>
+                  Try clearing your filters or searching for something else.
+                </p>
+                <button
+                  onClick={() => {
+                    setFilters(defaultFilters)
+                    setSearchParams({})
+                  }}
+                  className="btn-brand mt-4"
+                >
+                  Clear Filters
+                </button>
               </div>
             ) : (
               <>
-                <ProductGrid products={visibleProducts} {...productActions} />
+                <ProductGrid
+                  products={visibleProducts}
+                  columns={viewMode === 'list' ? 2 : 3}
+                  {...productActions}
+                />
 
-                {/* Lazy Loading Sentinel and Status Indicator */}
+                {/* Lazy Loading Sentinel */}
                 <div ref={observerTarget} className="mt-8 flex flex-col items-center justify-center py-4">
                   {hasMore ? (
-                    <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
-                      <FaSpinner className="h-3.5 w-3.5 animate-spin text-blue-600 dark:text-blue-400" />
-                      <span>Loading more products as you scroll...</span>
+                    <div
+                      className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider"
+                      style={{
+                        border: '1px solid var(--color-border)',
+                        color: 'var(--color-alt-text)',
+                      }}
+                    >
+                      <FaSpinner className="h-3.5 w-3.5 animate-spin" style={{ color: 'var(--color-brand)' }} />
+                      <span>Loading more products...</span>
                     </div>
                   ) : (
-                    <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
-                      <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700" />
-                      <span>You've reached the end of the catalog ({products.length} items)</span>
-                      <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+                    <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--color-text-lighter)' }}>
+                      <span className="h-px w-8" style={{ backgroundColor: 'var(--color-border)' }} />
+                      <span>End of catalog ({products.length} items)</span>
+                      <span className="h-px w-8" style={{ backgroundColor: 'var(--color-border)' }} />
                     </div>
                   )}
                 </div>

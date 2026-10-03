@@ -1,14 +1,36 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { IoChevronForward } from 'react-icons/io5'
 
 export const Breadcrumbs = ({ items = [] }) => (
-  <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-    <Link to="/" className="hover:text-slate-950 dark:hover:text-white">
+  <nav
+    aria-label="Breadcrumb"
+    className="mb-2 flex flex-wrap items-center gap-1.5 text-xs uppercase tracking-wider"
+  >
+    <Link
+      to="/"
+      className="transition-colors"
+      style={{ color: 'var(--color-alt-text)' }}
+      onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-brand-dark)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-alt-text)' }}
+    >
       Home
     </Link>
     {items.map((item) => (
-      <span key={item.label} className="flex items-center gap-2">
-        <span>/</span>
-        {item.to ? <Link to={item.to}>{item.label}</Link> : <span className="text-slate-900 dark:text-white">{item.label}</span>}
+      <span key={item.label} className="flex items-center gap-1.5">
+        <IoChevronForward size={10} style={{ color: 'var(--color-text-lightest)' }} />
+        {item.to ? (
+          <Link
+            to={item.to}
+            className="transition-colors"
+            style={{ color: 'var(--color-alt-text)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-brand-dark)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-alt-text)' }}
+          >
+            {item.label}
+          </Link>
+        ) : (
+          <span style={{ color: 'var(--color-headings)' }}>{item.label}</span>
+        )}
       </span>
     ))}
   </nav>

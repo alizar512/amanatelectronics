@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Large data files
+*.csv
+*.sql
+pel_raw_products.json
+pel_structured_catalog.json
+
+# Dev/Build artifacts
+dist
+dist-ssr
+*.log
+
+# Editor
+.vscode
+.idea
+.DS_Store
+
+# Git
+.git
+
+# Environment (Vercel uses its own env vars)
+.env
+.env.local

@@ -1,109 +1,169 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { 
-  FaLaptop, 
-  FaMobileAlt, 
-  FaTv,
-  FaFan,
-  FaUtensils,
-  FaShieldAlt,
-  FaCamera,
-  FaGamepad,
-  FaTags
-} from 'react-icons/fa'
-import { getCategories } from '../../services/catalogService'
+import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 
-const getCategoryIcon = (categoryName = '') => {
-  const name = categoryName.toLowerCase()
-  if (name.includes('phone') || name.includes('tablet') || name.includes('mobile')) return <FaMobileAlt />
-  if (name.includes('laptop') || name.includes('computer') || name.includes('pc')) return <FaLaptop />
-  if (name.includes('tv') || name.includes('audio') || name.includes('screen') || name.includes('sound')) return <FaTv />
-  if (name.includes('air conditioner') || name.includes('cooling') || name.includes('ac')) return <FaFan />
-  if (name.includes('kitchen') || name.includes('fryer') || name.includes('espresso')) return <FaUtensils />
-  if (name.includes('smart home') || name.includes('security') || name.includes('camera kit') || name.includes('vacuum')) return <FaShieldAlt />
-  if (name.includes('camera') || name.includes('photo') || name.includes('drone')) return <FaCamera />
-  if (name.includes('gaming') || name.includes('console') || name.includes('game')) return <FaGamepad />
-  return <FaTags />
-}
+const heroSlides = [
+  {
+    id: 1,
+    title: 'Premium Air Conditioners',
+    subtitle: 'Stay Cool This Summer',
+    description: 'Official PEL inverter AC with 10-year compressor warranty. Energy efficient cooling for your home.',
+    cta: 'Shop Now',
+    ctaLink: '/shop?category=air%20conditioners',
+    bgColor: '#1a1a2e',
+    accentColor: '#fad018',
+    image: null,
+  },
+  {
+    id: 2,
+    title: 'Wedding Season Packages',
+    subtitle: 'Special Bundle Deals',
+    description: 'Complete home appliance packages for newlyweds. Save up to 30% on bundle purchases.',
+    cta: 'View Packages',
+    ctaLink: '/deals',
+    bgColor: '#0f3460',
+    accentColor: '#fad018',
+    image: null,
+  },
+  {
+    id: 3,
+    title: 'Smart LED TVs',
+    subtitle: 'Cinema Experience at Home',
+    description: 'Full HD & 4K Smart LED TVs with Android OS. Stream, browse, and enjoy crystal clear visuals.',
+    cta: 'Explore TVs',
+    ctaLink: '/shop?category=led%20tvs',
+    bgColor: '#16213e',
+    accentColor: '#fad018',
+    image: null,
+  },
+  {
+    id: 4,
+    title: 'Kitchen Appliances',
+    subtitle: 'Cook Like a Pro',
+    description: 'Microwave ovens, air fryers, juicers & more. Transform your kitchen with premium appliances.',
+    cta: 'Shop Kitchen',
+    ctaLink: '/shop?category=kitchen%20appliances',
+    bgColor: '#1a1a1a',
+    accentColor: '#fad018',
+    image: null,
+  },
+]
 
 export const HeroSection = () => {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
 
+  const goToSlide = useCallback((index) => {
+    if (isAnimating) return
+    setIsAnimating(true)
+    setCurrentSlide(index)
+    setTimeout(() => setIsAnimating(false), 800)
+  }, [isAnimating])
+
+  const nextSlide = useCallback(() => {
+    goToSlide((currentSlide + 1) % heroSlides.length)
+  }, [currentSlide, goToSlide])
+
+  const prevSlide = useCallback(() => {
+    goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length)
+  }, [currentSlide, goToSlide])
+
+  // Auto-advance
   useEffect(() => {
-    let isActive = true
-    getCategories().then((data) => {
-      if (isActive) {
-        setCategories(Array.isArray(data) ? data : data.categories || [])
-        setLoading(false)
-      }
-    })
-    return () => {
-      isActive = false
-    }
-  }, [])
+    const timer = setInterval(nextSlide, 5000)
+    return () => clearInterval(timer)
+  }, [nextSlide])
+
+  const slide = heroSlides[currentSlide]
 
   return (
-    <section className="pt-2 pb-1 sm:pt-3 sm:pb-2">
-      <div className="container-shell">
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/85 p-3.5 shadow-[0_16px_50px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/72 dark:shadow-[0_18px_50px_rgba(2,6,23,0.35)] sm:p-5">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.10),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.10),transparent_24%)]" />
-          
-          {/* Categories Grid */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 via-white to-slate-200 p-3.5 sm:p-4 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(245,158,11,0.14),transparent_24%)]" />
-              
-              <div className="relative">
-                <div className="mb-3 flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400 sm:text-sm">
-                      Official PEL Departments
-                    </h3>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Explore official PEL home appliances curated by category
-                    </p>
-                  </div>
-                  <Link 
-                    to="/shop" 
-                    className="text-xs font-semibold text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 sm:text-sm"
-                  >
-                    View All Products →
-                  </Link>
-                </div>
-                
-                {loading ? (
-                  <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
-                    {[...Array(6)].map((_, i) => (
-                      <div key={i} className="h-24 animate-pulse rounded-xl bg-slate-200 dark:bg-slate-800" />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
-                    {categories.map((category) => (
-                      <Link 
-                        key={category.id || category.name}
-                        to={`/shop?category=${encodeURIComponent(category.name.toLowerCase())}`}
-                        className="group relative flex flex-col items-center justify-center rounded-xl bg-white p-3 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:bg-slate-800/80"
-                      >
-                        <div className={`mb-1.5 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${category.accent || 'from-blue-500/20 to-indigo-500/10'} text-lg text-blue-600 shadow-sm transition-transform group-hover:scale-110 dark:text-blue-400`}>
-                          {getCategoryIcon(category.name)}
-                        </div>
-                        <span className="font-semibold text-slate-800 transition-colors group-hover:text-blue-600 dark:text-slate-200 dark:group-hover:text-blue-400 text-xs line-clamp-1">
-                          {category.name}
-                        </span>
-                        <span className="mt-0.5 text-[10px] text-slate-400 leading-none">
-                          {category.count !== undefined ? `${category.count} models` : 'Explore'}
-                        </span>
-                        <div className="absolute inset-0 rounded-xl border border-transparent transition-colors group-hover:border-blue-500/40 dark:group-hover:border-blue-400/40" />
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+    <section className="relative overflow-hidden" style={{ minHeight: '420px' }}>
+      {/* Background */}
+      <div
+        className="absolute inset-0 transition-all duration-700 ease-out"
+        style={{ backgroundColor: slide.bgColor }}
+      >
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 h-64 w-64 rounded-full" style={{ background: `radial-gradient(circle, ${slide.accentColor}40, transparent)` }} />
+          <div className="absolute bottom-10 left-10 h-48 w-48 rounded-full" style={{ background: `radial-gradient(circle, ${slide.accentColor}30, transparent)` }} />
+        </div>
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      </div>
+
+      {/* Content */}
+      <div className="container-shell relative z-10 flex items-center" style={{ minHeight: '420px' }}>
+        <div className="w-full py-12 sm:py-16 lg:py-20">
+          <div className="max-w-xl animate-hero-fade" key={currentSlide}>
+            {/* Subtitle Chip */}
+            <div
+              className="mb-4 inline-flex items-center gap-2 rounded-sm px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em]"
+              style={{ backgroundColor: slide.accentColor, color: '#111111' }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-black/30" />
+              {slide.subtitle}
+            </div>
+
+            {/* Title */}
+            <h1 className="text-3xl font-black uppercase leading-tight tracking-wide text-white sm:text-4xl lg:text-5xl">
+              {slide.title}
+            </h1>
+
+            {/* Description */}
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/70 sm:text-base">
+              {slide.description}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex items-center gap-4">
+              <Link
+                to={slide.ctaLink}
+                className="btn-yellow"
+              >
+                {slide.cta}
+              </Link>
+              <Link
+                to="/shop"
+                className="inline-flex items-center gap-2 border-2 border-white/30 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:border-white hover:bg-white/10"
+              >
+                Browse All
+              </Link>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+        aria-label="Previous slide"
+      >
+        <IoChevronBack size={20} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20"
+        aria-label="Next slide"
+      >
+        <IoChevronForward size={20} />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
+        {heroSlides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className="h-2 rounded-full transition-all duration-300"
+            style={{
+              width: currentSlide === index ? '24px' : '8px',
+              backgroundColor: currentSlide === index ? '#fad018' : 'rgba(255,255,255,0.4)',
+            }}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )
